@@ -12,4 +12,5 @@ Thank you.
 Style Notes:
 
 — Find the style guide here: https://generic.tools/grid/
+— For the Layers feature, find the companion plugin here: https://wordpress.org/plugins/layers/
 — The default style for the mobile menu only supports main pages (not sub-pages)

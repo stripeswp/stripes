@@ -3,8 +3,8 @@ Theme Name: Stripes
 Theme URI: https://github.com/stripeswp/stripes
 Author: StripesWP
 Author URI: https://stripeswp.com/
-Description: Trying to make the best darn, always free theme that I can. 2 menu areas, 3 widget areas, 2 page templates, easily upload a custom logo, background, add Google fonts, and more. Fully responsive with WooCommerce and bbPress support built right in. Being carefully coded with quality and minimalism, Stripes manages to pack a punch and remain blazing-fast, without all the bloat.
-Version: 2017.2
+Description: Add layered content with the Layers companion plugin: https://wordpress.org/plugins/layers/. Trying to make the best darn, always free theme that I can. 2 menu areas, 3 widget areas, 2 page templates, easily upload a custom logo, background, add Google fonts, and more. Fully responsive with WooCommerce and bbPress support built right in. Being carefully coded with quality and minimalism, Stripes manages to pack a punch and remain blazing-fast, without all the bloat.
+Version: 2017.4
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, footer-widgets, full-width-template, microformats, sticky-post, theme-options, threaded-comments, translation-ready
@@ -122,6 +122,11 @@ h2.entry-title, h3.widget-title{margin-top:0}
 .nav-next{text-align:right;float:right}
 
 .note{display:block;font-size:14px;padding:20px;margin:30px 0}
+
+.layer{width:100%;color:#fff;padding:5%;background:#ff0000}
+.layer:after{display:table;content:"";clear:both}
+.layer-inner{padding:5% 10%}
+.page-template-layers #container, .page-template-layers #content{width:100%;padding:0;margin:0}
 
 .blue, .blue *, .blue-dark, .blue-dark *, .green, .green *, .green-dark, .green-dark *, .orange, .orange *, .purple, .purple *, .red, .red *, .black, .black *{color:#fff}
 .white, .white *, .yellow, .yellow *{color:#000}

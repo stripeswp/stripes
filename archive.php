@@ -2,10 +2,10 @@
 <main id="content">
 <header class="header">
 <h1 class="entry-title"><?php 
-if ( is_day() ) { printf( __( 'Daily Archives: %s', 'stripes' ), get_the_time( get_option( 'date_format' ) ) ); }
-elseif ( is_month() ) { printf( __( 'Monthly Archives: %s', 'stripes' ), get_the_time( 'F Y' ) ); }
-elseif ( is_year() ) { printf( __( 'Yearly Archives: %s', 'stripes' ), get_the_time( 'Y' ) ); }
-else { _e( 'Archives', 'stripes' ); }
+if ( is_day() ) { printf( esc_html__( 'Daily Archives: %s', 'stripes' ), esc_attr( get_the_time( get_option( 'date_format' ) ) ) ); }
+elseif ( is_month() ) { printf( esc_html__( 'Monthly Archives: %s', 'stripes' ), esc_attr( get_the_time( 'F Y' ) ) ); }
+elseif ( is_year() ) { printf( esc_html__( 'Yearly Archives: %s', 'stripes' ), esc_attr( get_the_time( 'Y' ) ) ); }
+else { esc_html_e( 'Archives', 'stripes' ); }
 ?></h1>
 </header>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

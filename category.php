@@ -2,7 +2,7 @@
 <main id="content">
 <header class="header">
 <h1 class="entry-title"><?php single_cat_title(); ?></h1>
-<?php if ( '' != category_description() ) echo apply_filters( 'archive_meta', '<div class="archive-meta"><p>' . category_description() . '</p></div>' ); ?>
+<?php if ( '' != category_description() ) echo esc_html( apply_filters( 'archive_meta', '<div class="archive-meta"><p>' . category_description() . '</p></div>' ) ); ?>
 </header>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php get_template_part( 'entry' ); ?>

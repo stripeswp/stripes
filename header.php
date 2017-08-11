@@ -14,9 +14,9 @@
 $custom_logo_id = get_theme_mod( 'custom_logo' );
 $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; }
-echo '<a href="'.esc_url( home_url( '/' ) ).'" title="'.esc_attr( get_bloginfo( 'name' ) ).'" rel="home">';
+echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home">';
 if ( has_custom_logo() ) {
-echo '<img src="'.esc_url( $logo[0] ).'" id="logo" />';
+echo '<img src="' . esc_url( $logo[0] ) . '" id="logo" />';
 } else {
 bloginfo( 'name' );
 }
@@ -46,8 +46,8 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1
 <?php endif; ?>
 <?php
 if ( get_header_image() ) {
-echo '<a href="'.esc_url( home_url( '/' ) ).'" title="'.esc_attr( get_bloginfo( 'name' ) ).'" rel="home">';
-echo '<img src="'.get_header_image().'" alt="'.esc_attr( get_bloginfo( 'name' ) ).'" id="header-img" />';
+echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home">';
+echo '<img src="' . esc_url( get_header_image() ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" id="header-img" />';
 echo '</a>';
 }
 ?>

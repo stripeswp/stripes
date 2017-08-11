@@ -13,11 +13,11 @@ add_theme_support( 'html5', array( 'search-form' ) );
 global $content_width;
 if ( ! isset( $content_width ) ) $content_width = 640;
 register_nav_menus(
-array( 'main-menu' => __( 'Main Menu', 'stripes' ), 'footer-menu' => __( 'Footer Menu', 'stripes' ) )
+array( 'main-menu' => esc_html__( 'Main Menu', 'stripes' ), 'footer-menu' => esc_html__( 'Footer Menu', 'stripes' ) )
 );
 }
-add_action( 'after_setup_theme', 'woocommerce_support' );
-function woocommerce_support() {
+add_action( 'after_setup_theme', 'stripes_woocommerce_support' );
+function stripes_woocommerce_support() {
 add_theme_support( 'woocommerce' );
 }
 require_once ( get_template_directory() . '/about.php' );
@@ -28,19 +28,7 @@ wp_enqueue_style( 'stripes-style', get_stylesheet_uri() );
 wp_enqueue_script( 'jquery' );
 wp_register_script( 'stripes-videos', get_template_directory_uri() . '/js/videos.js' );
 wp_enqueue_script( 'stripes-videos' );
-}
-add_action( 'wp_head', 'stripes_print_custom_scripts', 99 );
-function stripes_print_custom_scripts()
-{
-if ( !is_admin() ) {
-?>
-<script type="text/javascript">
-jQuery(document).ready(function($){
-$("#wrapper").vids();
-});
-</script>
-<?php
-}
+wp_add_inline_script( 'stripes-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 }
 add_filter( 'document_title_separator', 'stripes_document_title_separator' );
 function stripes_document_title_separator( $sep ) {
@@ -56,19 +44,23 @@ return $title;
 }
 }
 function stripes_read_more_link() {
+if ( ! is_admin() ) {
 return ' <a href="' . get_permalink() . '" class="more-link">...</a>';
+}
 }
 add_filter( 'the_content_more_link', 'stripes_read_more_link' );
 function stripes_excerpt_read_more_link( $more ) {
+if ( ! is_admin() ) {
 global $post;
 return ' <a href="' . get_permalink( $post->ID ) . '" class="more-link">...</a>';
+}
 }
 add_filter( 'excerpt_more', 'stripes_excerpt_read_more_link' );
 add_action( 'widgets_init', 'stripes_widgets_init' );
 function stripes_widgets_init()
 {
 register_sidebar( array (
-'name' => __( 'Header Widget Area', 'stripes' ),
+'name' => esc_html__( 'Header Widget Area', 'stripes' ),
 'id' => 'header-widget-area',
 'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 'after_widget' => "</li>",
@@ -76,7 +68,7 @@ register_sidebar( array (
 'after_title' => '</h3>',
 ) );
 register_sidebar( array (
-'name' => __( 'Footer Widget Area', 'stripes' ),
+'name' => esc_html__( 'Footer Widget Area', 'stripes' ),
 'id' => 'footer-widget-area',
 'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 'after_widget' => "</li>",
@@ -84,8 +76,8 @@ register_sidebar( array (
 'after_title' => '</h3>',
 ) );
 register_sidebar( array (
-'name' => __( 'Sidebar Widget Area', 'stripes' ),
-'description' => __( 'Does not display for single posts.', 'stripes' ),
+'name' => esc_html__( 'Sidebar Widget Area', 'stripes' ),
+'description' => esc_html__( 'Does not display for single posts.', 'stripes' ),
 'id' => 'primary-widget-area',
 'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 'after_widget' => "</li>",
@@ -100,10 +92,9 @@ if ( get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
 }
 function stripes_custom_pings( $comment )
 {
-$GLOBALS['comment'] = $comment;
 ?>
 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
-<?php 
+<?php
 }
 add_filter( 'get_comments_number', 'stripes_comment_count', 0 );
 function stripes_comment_count( $count ) {
@@ -131,7 +122,7 @@ new WP_Customize_Color_Control(
 $wp_customize,
 'link_color',
 array(
-'label' => __( 'Link Color', 'stripes' ),
+'label' => esc_html__( 'Link Color', 'stripes' ),
 'section' => 'colors',
 'settings' => 'stripes_link_color'
 )
@@ -150,7 +141,7 @@ new WP_Customize_Color_Control(
 $wp_customize,
 'header_color',
 array(
-'label' => __( 'Header Text Color', 'stripes' ),
+'label' => esc_html__( 'Header Text Color', 'stripes' ),
 'section' => 'colors',
 'settings' => 'stripes_header_color'
 )
@@ -176,8 +167,8 @@ new WP_Customize_Control(
 $wp_customize,
 'header_font',
 array(
-'label' => __( 'Header Text Font', 'stripes' ),
-'description' => __( 'If adding a Google font, make sure to capitalize all words, save, and then refresh to preview.', 'stripes' ),
+'label' => esc_html__( 'Header Text Font', 'stripes' ),
+'description' => esc_html__( 'If adding a Google font, make sure to capitalize all words, save, and then refresh to preview.', 'stripes' ),
 'section' => 'stripes_fonts',
 'settings' => 'stripes_header_font'
 )
@@ -191,7 +182,7 @@ function stripes_customizer_css() {
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=<?php echo esc_html( ucwords( str_replace( ' ', '+', get_theme_mod( 'stripes_header_font' ) ) ) ); ?>);
 a{color:<?php echo esc_html( get_theme_mod( 'stripes_link_color' ) ); ?>}
-h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{font-family:"<?php echo esc_html( ucwords( str_replace( '+', ' ', get_theme_mod( 'stripes_header_font' ) ), '+' ) ); ?>";color:<?php echo esc_html( get_theme_mod( 'stripes_header_color' ) ); ?>}
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{font-family:"<?php echo esc_html( str_replace( '+', ' ', get_theme_mod( 'stripes_header_font' ) ) ); ?>";color:<?php echo esc_html( get_theme_mod( 'stripes_header_color' ) ); ?>}
 </style>
 <?php
 }

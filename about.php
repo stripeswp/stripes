@@ -13,9 +13,9 @@ function stripes_options_do_page()
 <?php $current_theme = wp_get_theme(); ?>
 <h1><?php printf( esc_html__( 'Stripes', 'stripes' ) ); ?></h1>
 <p><?php printf( esc_html__( 'Thank you for choosing Stripes.', 'stripes' ) ); ?></p>
-<p><?php printf( esc_html__( 'You can customize Stripes under <em>Appearance</em> > <em>Customize</em>.', 'stripes' ) ); ?></p>
-<p><?php printf( esc_html__( 'Find the companion plugin for the Layers feature <a href="https://wordpress.org/plugins/layers/" target="_blank">here</a>.', 'stripes' ) ); ?></p>
-<p><?php printf( esc_html__( 'If at any point you need assistance with Stripes, please visit the <a href="https://github.com/stripeswp/stripes/issues" target="_blank">support page</a>.', 'stripes' ) ); ?></p>
+<p><?php printf( esc_html__( 'You can customize Stripes under %1$sAppearance%2$s > %1$sCustomize%2$s.', 'stripes' ), '<em>', '</em>' ); ?></p>
+<p><?php printf( esc_html__( 'Find the companion plugin for the Layers feature %1$shere%2$s.', 'stripes' ), '<a href="https://wordpress.org/plugins/layers/" target="_blank">', '</a>' ); ?></p>
+<p><?php printf( esc_html__( 'If at any point you need assistance with Stripes, please visit the %1$ssupport page%2$s.', 'stripes' ), '<a href="https://github.com/stripeswp/stripes/issues" target="_blank">', '</a>' ); ?></p>
 </div>
 <?php
 }

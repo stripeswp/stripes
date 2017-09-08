@@ -45,14 +45,14 @@ return $title;
 }
 function stripes_read_more_link() {
 if ( ! is_admin() ) {
-return ' <a href="' . get_permalink() . '" class="more-link">...</a>';
+return ' <a href="' . esc_url( get_permalink() ) . '" class="more-link">...</a>';
 }
 }
 add_filter( 'the_content_more_link', 'stripes_read_more_link' );
 function stripes_excerpt_read_more_link( $more ) {
 if ( ! is_admin() ) {
 global $post;
-return ' <a href="' . get_permalink( $post->ID ) . '" class="more-link">...</a>';
+return ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-link">...</a>';
 }
 }
 add_filter( 'excerpt_more', 'stripes_excerpt_read_more_link' );
@@ -180,7 +180,6 @@ add_action( 'customize_register', 'stripes_customizer', 20 );
 function stripes_customizer_css() {
 ?>
 <style type="text/css">
-@import url(https://fonts.googleapis.com/css?family=<?php echo esc_html( ucwords( str_replace( ' ', '+', get_theme_mod( 'stripes_header_font' ) ) ) ); ?>);
 a{color:<?php echo esc_html( get_theme_mod( 'stripes_link_color' ) ); ?>}
 h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{font-family:"<?php echo esc_html( str_replace( '+', ' ', get_theme_mod( 'stripes_header_font' ) ) ); ?>";color:<?php echo esc_html( get_theme_mod( 'stripes_header_color' ) ); ?>}
 </style>
@@ -201,3 +200,4 @@ function stripes_customizer_fonts_preview() {
 wp_enqueue_style( 'stripes-google-fonts', 'https://fonts.googleapis.com/css?family=' . esc_html( ucwords( str_replace( ' ', '+', get_theme_mod( 'stripes_header_font' ) ) ) ) . '' );
 }
 add_action( 'customize_preview_init', 'stripes_customizer_fonts_preview' );
+add_action( 'wp_enqueue_scripts', 'stripes_customizer_fonts_preview' );

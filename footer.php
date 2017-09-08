@@ -14,7 +14,7 @@
 <div id="fmenu"><?php wp_nav_menu( array( 'theme_location' => 'footer-menu', 'depth' => '1' ) ); ?></div>
 <?php endif; ?>
 <div id="copyright">
-&copy; <?php echo esc_attr( date( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
+&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
 </div>
 </footer>
 </div>

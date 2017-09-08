@@ -1,4 +1,3 @@
-<?php if ( 'comments.php' == basename( esc_url( $_SERVER['SCRIPT_FILENAME'] ) ) ) return; ?>
 <div id="comments">
 <?php 
 if ( have_comments() ) : 
@@ -28,7 +27,7 @@ if ( ! empty( $comments_by_type['pings'] ) ) :
 $ping_count = count( $comments_by_type['pings'] ); 
 ?>
 <section id="trackbacks-list" class="comments">
-<h3 class="comments-title"><?php echo '<span class="ping-count">' . esc_html( $ping_count ) . '</span> ' . ( $ping_count > 1 ? esc_html__( 'Trackbacks and Pingbacks', 'stripes' ) : esc_html__( 'Trackback or Pingback', 'stripes' ) ); ?></h3>
+<h3 class="comments-title"><?php echo '<span class="ping-count">' . esc_html( $ping_count ) . '</span> ' . esc_html( _nx( 'Trackback or Pingback', 'Trackbacks and Pingbacks', $ping_count, 'comments count', 'stripes' ) ); ?></h3>
 <ul>
 <?php wp_list_comments( 'type=pings&callback=stripes_custom_pings' ); ?>
 </ul>

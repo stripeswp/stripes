@@ -4,7 +4,7 @@ Theme URI: https://github.com/stripeswp/stripes
 Author: StripesWP
 Author URI: https://stripeswp.com/
 Description: Add layered content with the Layers companion plugin: https://wordpress.org/plugins/layers/. Trying to make the best darn, always free theme that I can. 2 menu areas, 3 widget areas, 2 page templates, easily upload a custom logo, background, add Google fonts, and more. Fully responsive with WooCommerce and bbPress support built right in. Being carefully coded with quality and minimalism, Stripes manages to pack a punch and remain blazing-fast, without all the bloat.
-Version: 2017.9
+Version: 2017.11
 License: GNU General Public License v3 or Later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, microformats, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
@@ -28,8 +28,8 @@ h3{font-size:25px}
 h4{font-size:20px}
 h5{font-size:18px}
 h6{font-size:16px}
-p{margin:20px 0}
-.single-post p{font-size:18px;line-height:145%;margin:30px 0}
+p{margin:30px 0}
+.page #content p, .single-post #content p{font-size:18px;line-height:145%}
 * p:last-of-type, #sidebar .widget-container:last-child{margin-bottom:0}
 a{color:#ff0000}
 strong{font-weight:bold}
@@ -43,7 +43,7 @@ blockquote p:first-of-type{margin-top:0}
 .entry-content ol, .widget-container ol, .comment-body ol{list-style:decimal inside;text-indent:-18px}
 .entry-content ul ul, .widget-container ul ul, .comment-body ul ul, .entry-content ol ol, .widget-container ol ol, .comment-body ol ol{margin-top:0;margin-bottom:0}
 .entry-content ul li:before, .widget-container ul li:before, .comment-body ul li:before{content:"— "}
-.entry-content li, .widget-container li, .comment-body li{margin:10px 0}
+.entry-content li, .widget-container li, .comment-body li{line-height:125%;margin:10px 0}
 input, textarea{padding:10px;border:0 none;outline:0 none;margin-top:10px;background:#f6f6f6}
 input[type="submit"], #menu .toggle:hover{cursor:pointer}
 a img, input[type="image"]{border:0 none}
@@ -123,11 +123,6 @@ h2.entry-title, h3.widget-title{margin-top:0}
 .nav-next{text-align:right;float:right}
 
 .note{display:block;font-size:14px;padding:20px;margin:30px 0}
-
-.layer{width:100%;color:#fff;padding:5%;background:#ff0000}
-.layer:after{display:table;content:"";clear:both}
-.layer-inner{padding:5% 10%}
-.page-template-layers #container, .page-template-layers #content{width:100%;padding:0;margin:0}
 
 .blue, .blue *, .blue-dark, .blue-dark *, .green, .green *, .green-dark, .green-dark *, .orange, .orange *, .purple, .purple *, .red, .red *, .black, .black *{color:#fff}
 .white, .white *, .yellow, .yellow *{color:#000}

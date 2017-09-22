@@ -201,3 +201,4 @@ wp_enqueue_style( 'stripes-google-fonts', 'https://fonts.googleapis.com/css?fami
 }
 add_action( 'customize_preview_init', 'stripes_customizer_fonts_preview' );
 add_action( 'wp_enqueue_scripts', 'stripes_customizer_fonts_preview' );
+require_once( get_stylesheet_directory() . '/plugins/plugin-activation.php' );

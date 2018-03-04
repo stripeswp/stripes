@@ -39,6 +39,12 @@ q:after {
   font-style: normal;
 }
 
+textarea, input[type="text"], input[type="button"], input[type="submit"], input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;

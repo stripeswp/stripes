@@ -1,6 +1,7 @@
 === Stripes ===
 
 Contributors: stripeswp, bhadaway
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DTRTUYSPKJN8N
 Theme link: https://stripeswp.com/
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, microformats, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
 Requires at least: 4.8

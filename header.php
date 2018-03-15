@@ -30,7 +30,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1
 <div id="search">
 <?php get_search_form(); ?>
 </div>
-<label class="toggle" for="toggle">&#9776; Menu</label>
+<label class="toggle" for="toggle"><span class="menu-icon">&#9776;</span> <?php esc_html_e( 'Menu', 'stripes' ); ?></label>
 <input id="toggle" class="toggle" type="checkbox" />
 <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 </nav>

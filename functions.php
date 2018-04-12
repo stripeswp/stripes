@@ -31,31 +31,34 @@ wp_register_script( 'stripes-videos', get_template_directory_uri() . '/js/videos
 wp_enqueue_script( 'stripes-videos' );
 wp_add_inline_script( 'stripes-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );
 }
-add_action( 'wp_footer', 'stripes_detect_script' );
-function stripes_detect_script() {
+add_action( 'wp_footer', 'stripes_footer_scripts' );
+function stripes_footer_scripts() {
 ?>
 <script>
-jQuery(document).ready(function($){
+jQuery(document).ready(function($) {
 var deviceAgent = navigator.userAgent.toLowerCase();
-if (deviceAgent.match(/(iphone|ipod|ipad)/)){
-$('html').addClass('ios');
-$('html').addClass('mobile');
+if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
+$("html").addClass("ios");
+$("html").addClass("mobile");
 }
 if (navigator.userAgent.search("MSIE") >= 0) {
-$('html').addClass('ie');
+$("html").addClass("ie");
 }
 else if (navigator.userAgent.search("Chrome") >= 0) {
-$('html').addClass('chrome');
+$("html").addClass("chrome");
 }
 else if (navigator.userAgent.search("Firefox") >= 0) {
-$('html').addClass('firefox');
+$("html").addClass("firefox");
 }
 else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-$('html').addClass('safari');
+$("html").addClass("safari");
 }
 else if (navigator.userAgent.search("Opera") >= 0) {
-$('html').addClass('opera');
+$("html").addClass("opera");
 }
+$(":checkbox").on("click", function() {
+$(this).parent().toggleClass("checked");
+});
 });
 </script>
 <?php
@@ -128,6 +131,12 @@ register_sidebar( array (
 'before_title' => '<h3 class="widget-title">',
 'after_title' => '</h3>',
 ) );
+}
+add_action( 'wp_head', 'stripes_pingback_header' );
+function stripes_pingback_header() {
+if ( is_singular() && pings_open() ) {
+printf( '<link rel="pingback" href="%s" />' . "\n", esc_url( get_bloginfo( 'pingback_url' ) ) );
+}
 }
 add_action( 'comment_form_before', 'stripes_enqueue_comment_reply_script' );
 function stripes_enqueue_comment_reply_script()

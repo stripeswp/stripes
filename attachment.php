@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php global $post; ?>
-<main id="content">
+<main id="content" role="main">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <header class="header">

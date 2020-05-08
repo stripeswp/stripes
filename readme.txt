@@ -1,11 +1,11 @@
 === Stripes ===
 
 Contributors: stripeswp, bhadaway
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DTRTUYSPKJN8N
+Donate link: https://stripeswp.com/donate
 Theme link: https://stripeswp.com/
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, microformats, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
-Requires at least: 4.8
-Tested up to: 4.8
+Requires at least: 5.4
+Tested up to: 5.4
 Stable tag: trunk
 License: GNU General Public License v3 or Later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -24,10 +24,13 @@ Thank you.
 
 === Notes ===
 
-— Find the style guide here: https://generic.tools/grid/
+— Find the style guide here: https://stripes.tools/grid/
 — For the Layers feature, find the companion plugin here: https://wordpress.org/plugins/layers/
 — The default style for the mobile menu only supports main pages (not sub-pages)
 
 === License ===
+
+Stripes WordPress Theme © 2018-2020 StripesWP
+Stripes is distributed under the terms of the GNU GPL
 
 The Stripes theme package and all files contained within are distributed under the terms of the GNU GPL v3 or Later (https://www.gnu.org/licenses/gpl.html).

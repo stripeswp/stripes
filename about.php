@@ -1,12 +1,10 @@
 <?php
 add_action( 'admin_menu', 'stripes_add_page' );
-function stripes_add_page()
-{
+function stripes_add_page() {
 global $stripes_theme_page;
 $stripes_theme_page = add_theme_page( esc_html__( 'Stripes', 'stripes' ), esc_html__( 'Stripes', 'stripes' ), 'edit_theme_options', 'theme_options', 'stripes_options_do_page' );
 }
-function stripes_options_do_page()
-{
+function stripes_options_do_page() {
 ?>
 <div class="wrap">
 <?php global $stripes_theme_page; ?>

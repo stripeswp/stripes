@@ -3159,7 +3159,7 @@ $this->i++;
 }
 if ( ! class_exists( 'TGMPA_Utils' ) ) {
 /**
-* Generic utilities for TGMPA.
+* stripes utilities for TGMPA.
 *
 * All methods are static, poor-dev name-spacing class wrapper.
 *

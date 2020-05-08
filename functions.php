@@ -1,7 +1,6 @@
 <?php
 add_action( 'after_setup_theme', 'stripes_setup' );
-function stripes_setup()
-{
+function stripes_setup() {
 load_theme_textdomain( 'stripes', get_template_directory() . '/languages' );
 add_theme_support( 'title-tag' );
 add_theme_support( 'automatic-feed-links' );
@@ -23,8 +22,7 @@ add_theme_support( 'woocommerce' );
 }
 require_once ( get_template_directory() . '/about.php' );
 add_action( 'wp_enqueue_scripts', 'stripes_load_scripts' );
-function stripes_load_scripts()
-{
+function stripes_load_scripts() {
 wp_enqueue_style( 'stripes-style', get_stylesheet_uri() );
 wp_enqueue_script( 'jquery' );
 wp_register_script( 'stripes-videos', get_template_directory_uri() . '/js/videos.js' );
@@ -35,11 +33,10 @@ add_action( 'wp_footer', 'stripes_footer_scripts' );
 function stripes_footer_scripts() {
 ?>
 <script>
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 var deviceAgent = navigator.userAgent.toLowerCase();
 if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
 $("html").addClass("ios");
-$("html").addClass("mobile");
 }
 if (navigator.userAgent.search("MSIE") >= 0) {
 $("html").addClass("ie");
@@ -56,8 +53,13 @@ $("html").addClass("safari");
 else if (navigator.userAgent.search("Opera") >= 0) {
 $("html").addClass("opera");
 }
-$(":checkbox").on("click", function() {
-$(this).parent().toggleClass("checked");
+$(".menu-icon").on("click", function () {
+$("#menu").toggleClass("toggled");
+});
+$(".menu-toggle").on("keypress", function(e) {
+if(e.which == 13) {
+$("#menu").toggleClass("toggled");
+}
 });
 });
 </script>
@@ -90,6 +92,15 @@ return '&rarr;';
 return $title;
 }
 }
+if ( ! function_exists( 'stripes_wp_body_open' ) ) {
+function stripes_wp_body_open() {
+do_action( 'wp_body_open' );
+}
+}
+add_action( 'wp_body_open', 'stripes_skip_link', 5 );
+function stripes_skip_link() {
+echo '<a href="#content" class="skip-link screen-reader-text">' . esc_html__( 'Skip to the content', 'stripes' ) . '</a>';
+}
 function stripes_read_more_link() {
 if ( ! is_admin() ) {
 return ' <a href="' . esc_url( get_permalink() ) . '" class="more-link">...</a>';
@@ -104,8 +115,7 @@ return ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-lin
 }
 add_filter( 'excerpt_more', 'stripes_excerpt_read_more_link' );
 add_action( 'widgets_init', 'stripes_widgets_init' );
-function stripes_widgets_init()
-{
+function stripes_widgets_init() {
 register_sidebar( array (
 'name' => esc_html__( 'Header Widget Area', 'stripes' ),
 'id' => 'header-widget-area',
@@ -139,12 +149,10 @@ printf( '<link rel="pingback" href="%s" />' . "\n", esc_url( get_bloginfo( 'ping
 }
 }
 add_action( 'comment_form_before', 'stripes_enqueue_comment_reply_script' );
-function stripes_enqueue_comment_reply_script()
-{
+function stripes_enqueue_comment_reply_script() {
 if ( get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
 }
-function stripes_custom_pings( $comment )
-{
+function stripes_custom_pings( $comment ) {
 ?>
 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
 <?php

@@ -4,8 +4,9 @@ Contributors: stripeswp, bhadaway
 Donate link: https://stripeswp.com/donate
 Theme link: https://stripeswp.com/
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, microformats, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
-Requires at least: 5.4
-Tested up to: 5.4
+Requires at least: 5.0
+Tested up to: 5.9
+Requires PHP: 7.0
 Stable tag: trunk
 License: GNU General Public License v3 or Later
 License URI: https://www.gnu.org/licenses/gpl.html
@@ -30,7 +31,7 @@ Thank you.
 
 === License ===
 
-Stripes WordPress Theme © 2018-2020 StripesWP
+Stripes WordPress Theme © 2018-2022 StripesWP
 Stripes is distributed under the terms of the GNU GPL
 
 The Stripes theme package and all files contained within are distributed under the terms of the GNU GPL v3 or Later (https://www.gnu.org/licenses/gpl.html).

@@ -11,7 +11,7 @@ add_theme_support( 'custom-header', $defaults );
 add_theme_support( 'custom-background' );
 add_theme_support( 'html5', array( 'search-form' ) );
 global $content_width;
-if ( ! isset( $content_width ) ) $content_width = 1920;
+if ( !isset( $content_width ) ) $content_width = 1920;
 register_nav_menus(
 array( 'main-menu' => esc_html__( 'Main Menu', 'stripes' ), 'footer-menu' => esc_html__( 'Footer Menu', 'stripes' ) )
 );
@@ -92,7 +92,7 @@ return '&rarr;';
 return $title;
 }
 }
-if ( ! function_exists( 'stripes_wp_body_open' ) ) {
+if ( !function_exists( 'stripes_wp_body_open' ) ) {
 function stripes_wp_body_open() {
 do_action( 'wp_body_open' );
 }
@@ -102,13 +102,13 @@ function stripes_skip_link() {
 echo '<a href="#content" class="skip-link screen-reader-text">' . esc_html__( 'Skip to the content', 'stripes' ) . '</a>';
 }
 function stripes_read_more_link() {
-if ( ! is_admin() ) {
+if ( !is_admin() ) {
 return ' <a href="' . esc_url( get_permalink() ) . '" class="more-link">...</a>';
 }
 }
 add_filter( 'the_content_more_link', 'stripes_read_more_link' );
 function stripes_excerpt_read_more_link( $more ) {
-if ( ! is_admin() ) {
+if ( !is_admin() ) {
 global $post;
 return ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-link">...</a>';
 }
@@ -159,7 +159,7 @@ function stripes_custom_pings( $comment ) {
 }
 add_filter( 'get_comments_number', 'stripes_comment_count', 0 );
 function stripes_comment_count( $count ) {
-if ( ! is_admin() ) {
+if ( !is_admin() ) {
 global $id;
 $get_comments = get_comments( 'status=approve&post_id=' . $id );
 $comments_by_type = separate_comments( $get_comments );
@@ -260,4 +260,4 @@ wp_enqueue_style( 'stripes-google-fonts', 'https://fonts.googleapis.com/css?fami
 }
 add_action( 'customize_preview_init', 'stripes_customizer_fonts_preview' );
 add_action( 'wp_enqueue_scripts', 'stripes_customizer_fonts_preview' );
-require_once( get_stylesheet_directory() . '/plugins/plugin-activation.php' );
+require_once( get_template_directory() . '/plugins/plugin-activation.php' );
